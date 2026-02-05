@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฐานข้อมูลทรัพยากรชีวภาพ - โรงเรียนชลบุรี "สุขบท"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Kanit:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: #f0fdf4; color: #1e293b; }
+        .heading-font { font-family: 'Kanit', sans-serif; }
+        .bio-card { 
+            background: white; 
+            border-radius: 30px; 
+            transition: all 0.3s;
+            border: 1px solid #d1fae5;
+        }
+        .bio-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(6, 78, 59, 0.1); }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        .active-tab { background-color: #059669 !important; color: white !important; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+            <div>
+                <nav class="text-sm text-emerald-600 mb-2 font-bold">
+                    <a href="local-hub.html" class="hover:underline">ฐานทรัพยากรท้องถิ่น</a> / ข้อมูลชีวภาพ
+                </nav>
+                <h1 class="heading-font text-4xl font-bold text-emerald-900">ฐานข้อมูลทรัพยากรชีวภาพ</h1>
+                <p class="text-slate-500 italic">บันทึกข้อมูลพืช สัตว์ และสิ่งมีชีวิตท้องถิ่น (ใบงานที่ 5-7)</p>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="switchTab('plant')" id="btn-plant" class="active-tab px-6 py-2 bg-white text-emerald-700 rounded-full font-bold shadow-sm transition">🌿 ทรัพยากรพืช</button>
+                <button onclick="switchTab('animal')" id="btn-animal" class="px-6 py-2 bg-white text-emerald-700 rounded-full font-bold shadow-sm transition">🐾 ทรัพยากรสัตว์</button>
+                <button onclick="switchTab('other')" id="btn-other" class="px-6 py-2 bg-white text-emerald-700 rounded-full font-bold shadow-sm transition">🍄 ชีวภาพอื่นๆ</button>
+            </div>
+        </header>
+
+        <div id="content-plant" class="tab-content active">
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bio-card p-6 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="w-full md:w-48 h-48 bg-emerald-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-emerald-200">
+                        <span class="text-slate-400">รูปภาพพืช (ใบงาน 5)</span>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between">
+                            <h3 class="heading-font text-2xl font-bold text-emerald-800">ชื่อพืชพื้นเมือง</h3>
+                            <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-lg text-xs font-bold">รหัส: 7-XXXXX-XXX-XXX</span>
+                        </div>
+                        <p class="text-sm italic text-slate-400 mb-4">Scientific Name / Family Name</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                            <div class="bg-slate-50 p-3 rounded-xl"><strong>พิกัด (GIS):</strong> X: ..., Y: ...</div>
+                            <div class="bg-slate-50 p-3 rounded-xl"><strong>ลักษณะวิสัย:</strong> ไม้ต้น</div>
+                            <div class="bg-slate-50 p-3 rounded-xl"><strong>สถานภาพ:</strong> พบทั่วไป</div>
+                            <div class="bg-slate-50 p-3 rounded-xl"><strong>การใช้ประโยชน์:</strong> อาหาร/ยา</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-animal" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bio-card p-6 border-l-8 border-amber-400">
+                    <h3 class="heading-font text-xl font-bold text-amber-900">สัตว์เลี้ยง/สัตว์ป่าท้องถิ่น</h3>
+                    <p class="text-xs font-bold text-amber-600 mb-3 uppercase">รหัสพันธุ์สัตว์: XXXX</p>
+                    <ul class="text-sm space-y-2">
+                        <li><strong>ประเภท:</strong> สัตว์ปีก / สัตว์น้ำ / สัตว์เลี้ยงลูกด้วยนม</li>
+                        <li><strong>จำนวนที่พบ:</strong> ....... ตัว</li>
+                        <li><strong>ประวัติ/ที่มา:</strong> ............................................</li>
+                        <li class="mt-4 p-3 bg-amber-50 rounded-xl text-amber-800 italic">"บันทึกรายได้และการใช้ประโยชน์ทางเศรษฐกิจจากสัตว์"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="content-other" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bio-card p-6">
+                    <div class="text-3xl mb-2">🌿</div>
+                    <h3 class="heading-font font-bold">กลุ่มไลเคน (Lichen)</h3>
+                    <p class="text-xs text-slate-500 mb-4">ดัชนีชี้วัดคุณภาพอากาศ</p>
+                    <div class="space-y-2 text-sm">
+                        <label class="flex items-center">☐ ครัสโตส (Crustose)</label>
+                        <label class="flex items-center">☐ โฟลิโอส (Foliose)</label>
+                        <label class="flex items-center">☐ ฟรูทิโคส (Fruticose)</label>
+                    </div>
+                </div>
+                <div class="bio-card p-6">
+                    <div class="text-3xl mb-2">🍄</div>
+                    <h3 class="heading-font font-bold">เห็ด และ รา</h3>
+                    <p class="text-xs text-slate-500 mb-4">การจำแนกประเภทและความเป็นพิษ</p>
+                    <p class="text-sm p-3 bg-red-50 text-red-700 rounded-xl">เน้นบันทึก: "เห็ดที่กินได้" และ "เห็ดที่มีพิษ" ในชุมชน</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(type) {
+            // ซ่อนเนื้อหาทั้งหมด
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // ลบสีปุ่ม Active ทั้งหมด
+            document.querySelectorAll('header button').forEach(btn => btn.classList.remove('active-tab'));
+            
+            // แสดงเนื้อหาที่เลือก
+            document.getElementById('content-' + type).classList.add('active');
+            // ใส่สีปุ่มที่เลือก
+            document.getElementById('btn-' + type).classList.add('active-tab');
+        }
+    </script>
+</body>
+</html>

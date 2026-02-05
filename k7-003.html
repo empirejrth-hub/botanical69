@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ก.7-003: ระบบศึกษาพรรณไม้ - โรงเรียนชลบุรี "สุขบท"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&family=Kanit:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: #fdf4ff; min-height: 100vh; }
+        .heading-font { font-family: 'Kanit', sans-serif; }
+        
+        /* แก้ไขปัญหาหน้าขาว: มั่นใจว่า Content เริ่มต้นถูกซ่อนอย่างถูกต้อง */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ปรับปรุง Scrollbar ให้เด่นชัด */
+        .custom-scroll::-webkit-scrollbar { height: 10px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #f5f3ff; border-radius: 10px; }
+        .custom-scroll::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to right, #d946ef, #8b5cf6); 
+            border-radius: 10px;
+            border: 2px solid #f5f3ff;
+        }
+
+        /* เอฟเฟคลูกศรชี้ทาง */
+        .scroll-arrow {
+            animation: moveArrow 1.5s infinite;
+        }
+        @keyframes moveArrow {
+            0%, 100% { transform: translateX(0); opacity: 0.5; }
+            50% { transform: translateX(10px); opacity: 1; }
+        }
+
+        .tab-btn { transition: all 0.3s; white-space: nowrap; border-bottom: 4px solid transparent; }
+        .tab-btn.active { color: #d946ef; border-bottom-color: #d946ef; background: #fae8ff; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden border border-fuchsia-100">
+        
+        <div class="p-8 bg-gradient-to-r from-fuchsia-700 to-indigo-800 text-white relative">
+            <h1 class="heading-font text-3xl font-bold">แบบศึกษาพรรณไม้ (ก.7-003)</h1>
+            <p class="opacity-80 mt-1 uppercase tracking-widest text-xs">Botanical Study Form - Chonburi Sukkaboth</p>
+            <div class="absolute top-8 right-8 text-4xl opacity-20 rotate-12">🌿</div>
+        </div>
+
+        <div class="relative bg-slate-50 border-b border-slate-200">
+            <div class="absolute right-0 top-0 bottom-0 flex items-center pr-4 bg-gradient-to-l from-slate-50 via-slate-50 to-transparent z-10 pointer-events-none">
+                <span class="text-[10px] font-bold text-fuchsia-600 mr-2 uppercase">Slide for more (1-10)</span>
+                <span class="scroll-arrow text-xl text-fuchsia-600 font-bold">❱❱</span>
+            </div>
+
+            <div class="flex overflow-x-auto custom-scroll px-4">
+                <button onclick="openTab(1)" id="btn1" class="tab-btn active px-6 py-5 font-bold text-sm">หน้า 1: ข้อมูลทั่วไป [cite: 1]</button>
+                <button onclick="openTab(2)" id="btn2" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 2: ข้อมูลพื้นบ้าน [cite: 28]</button>
+                <button onclick="openTab(3)" id="btn3" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 3: ลักษณะวิสัย/ลำต้น [cite: 43]</button>
+                <button onclick="openTab(4)" id="btn4" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 4: ใบ/การเรียงตัว [cite: 132]</button>
+                <button onclick="openTab(5)" id="btn5" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 5: รูปร่างใบ/ปลาย/โคน [cite: 160]</button>
+                <button onclick="openTab(6)" id="btn6" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 6: ขอบใบ/ดอก [cite: 211]</button>
+                <button onclick="openTab(7)" id="btn7" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 7: ผล/เมล็ด [cite: 323]</button>
+                <button onclick="openTab(8)" id="btn8" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 8: ภาพวาดพฤกษศาสตร์ [cite: 367]</button>
+                <button onclick="openTab(9)" id="btn9" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 9: สรุปข้อมูล [cite: 377]</button>
+                <button onclick="openTab(10)" id="btn10" class="tab-btn px-6 py-5 font-bold text-sm">หน้า 10: ข้อมูลพฤกษศาสตร์ [cite: 385]</button>
+            </div>
+        </div>
+
+        <div class="p-8 md:p-12 min-h-[600px]">
+            
+            <div id="tab1" class="tab-content active">
+                <h3 class="heading-font text-2xl font-bold text-fuchsia-800 mb-6 underline decoration-fuchsia-200">หน้า 1: ข้อมูลการสำรวจ [cite: 1]</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="p-5 bg-fuchsia-50 rounded-3xl border border-fuchsia-100">
+                            <label class="text-xs font-bold text-fuchsia-400 uppercase">ชื่อพันธุ์ไม้ [cite: 1]</label>
+                            <p class="text-xl font-bold">สุพรรณิการ์</p>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-3xl border border-slate-100">
+                            <label class="text-xs font-bold text-slate-400 uppercase">รหัสพรรณไม้ [cite: 5]</label>
+                            <p class="font-mono text-indigo-600">7-20110-001-001</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-100 rounded-[2rem] p-10 flex items-center justify-center border-4 border-dashed border-white shadow-inner">
+                        <p class="text-slate-400 italic">📷 พื้นที่สำหรับภาพวาดทางพฤกษศาสตร์ [cite: 4]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab5" class="tab-content">
+                <h3 class="heading-font text-2xl font-bold text-fuchsia-800 mb-6">หน้า 5: รูปร่างแผ่นใบ / ปลายใบ / โคนใบ [cite: 160]</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="p-6 bg-white border-2 border-fuchsia-100 rounded-3xl">
+                        <h4 class="font-bold text-fuchsia-600 mb-4">รูปร่างแผ่นใบ [cite: 160]</h4>
+                        <p class="text-sm">☐ รูปรี (elliptic)<br>☐ รูปไข่ (ovate)<br>☑ อื่นๆ: รูปนิ้วมือ</p>
+                    </div>
+                    <div class="p-6 bg-white border-2 border-fuchsia-100 rounded-3xl">
+                        <h4 class="font-bold text-fuchsia-600 mb-4">ปลายใบ [cite: 172]</h4>
+                        <p class="text-sm">☑ เรียวแหลม (acuminate)<br>☐ มน (obtuse)</p>
+                    </div>
+                    <div class="p-6 bg-white border-2 border-fuchsia-100 rounded-3xl">
+                        <h4 class="font-bold text-fuchsia-600 mb-4">โคนใบ [cite: 196]</h4>
+                        <p class="text-sm">☑ รูปหัวใจ (cordate)<br>☐ มน (obtuse)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="otherTabs" class="tab-content py-20 text-center text-slate-300">
+                <div class="text-6xl mb-4">📄</div>
+                <p class="italic">กำลังจัดเตรียมเนื้อหาสำหรับหน้านี้ตามแบบ ก.7-003 </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabNum) {
+            // ปิดทุก Tab Content
+            const contents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove('active');
+            }
+
+            // จัดการสีปุ่ม
+            const buttons = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+
+            // เปิด Tab ที่เลือก
+            const targetTab = document.getElementById('tab' + tabNum);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            } else {
+                document.getElementById('otherTabs').classList.add('active');
+            }
+            
+            document.getElementById('btn' + tabNum).classList.add('active');
+            
+            // เลื่อนขึ้นไปบนสุดของ Card เมื่อเปลี่ยนหน้า
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

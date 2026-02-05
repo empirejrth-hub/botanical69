@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อพ.สธ. - โรงเรียนชลบุรี "สุขบท"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 1. สไตล์พื้นฐานและ Effect เดิม --- */
+        body { font-family: 'Sarabun', sans-serif; background-color: #F8F4FF; color: #4A2B6D; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
+        .leaf { position: fixed; top: -50px; z-index: 9999; pointer-events: none; }
+        .nav-glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
+        .nav-link { position: relative; padding-bottom: 4px; transition: all 0.3s; }
+        .nav-link::after { 
+            content: ''; position: absolute; width: 0; height: 2px; 
+            bottom: 0; left: 0; background-color: #7C3AED; transition: width 0.3s; 
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: #7C3AED; font-weight: bold; }
+
+        .unified-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(109, 40, 217, 0.05);
+        }
+        .unified-card:hover { transform: translateY(-12px) scale(1.02); background: white; box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15); border-color: #7C3AED; }
+
+        .section-dark { background-color: #F3E8FF; } 
+        .section-light { background-color: #FFFFFF; } 
+        .section-title { position: relative; display: inline-block; padding-bottom: 12px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: #7C3AED; border-radius: 10px; }
+
+        /* --- 2. เอฟเฟกต์ใหม่สำหรับ Visitor Counter --- */
+        @keyframes pulse-purple {
+            0% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(124, 58, 237, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+        }
+        .visitor-badge {
+            animation: pulse-purple 2s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="leaf-container"></div>
+
+    <nav class="nav-glass sticky top-0 z-[100] border-b border-purple-100">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="rspg-logo.png" alt="อพ.สธ." class="h-12 w-auto object-contain">
+                <div class="h-8 w-[1px] bg-purple-200"></div>
+                <img src="skb-logo.png" alt="สุขบท" class="h-12 w-auto object-contain">
+                <div class="hidden lg:block ml-2">
+                    <h1 class="font-bold text-lg leading-tight text-purple-900 uppercase">งานสวนพฤกษศาสตร์โรงเรียน โรงเรียนชลบุรี "สุขบท"</h1>
+                    <p class="text-[9px] text-purple-500 font-medium tracking-[0.2em] uppercase">
+                        <a href="https://www.skb.ac.th" target="_blank" class="hover:text-purple-700 transition">Chonburi Sukkhabot School | www.skb.ac.th</a>
+                    </p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold" id="main-nav">
+                <a href="#section-5" class="nav-link">5 องค์ประกอบ</a>
+                <a href="#section-3" class="nav-link">3 สาระ</a>
+                <a href="#section-base" class="nav-link">ฐานทรัพยากรท้องถิ่น</a>
+                <a href="https://www.rspg.or.th" target="_blank" class="bg-purple-700 text-white px-5 py-2 rounded-full hover:bg-purple-800 shadow-md ml-4 transition">RSPG.OR.TH</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-24 px-6 text-center bg-gradient-to-b from-purple-100 to-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-purple-950 mb-6 tracking-tight">สร้างจิตสำนึกนักอนุรักษ์</h2>
+            <p class="text-lg text-purple-600 italic font-medium">"ธรรมชาติแห่งชีวิต สรรพสิ่งล้วนพันเกี่ยว ประโยชน์แท้แก่มหาชน"</p>
+        </div>
+    </section>
+
+    <section id="section-5" class="py-24 px-6 section-dark">
+        <div class="container mx-auto text-center">
+            <h3 class="text-3xl font-bold text-purple-900 mb-16 section-title">การดำเนินงาน 5 องค์ประกอบ</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="unified-card p-6 h-64"><img src="https://cdn-icons-png.flaticon.com/128/2912/2912761.png" class="w-16 h-16 mb-4"><h4 class="font-bold text-purple-800">1. จัดทำป้ายชื่อ</h4></div>
+                <div class="unified-card p-6 h-64"><img src="https://cdn-icons-png.flaticon.com/128/628/628283.png" class="w-16 h-16 mb-4"><h4 class="font-bold text-purple-800">2. รวบรวมพรรณไม้</h4></div>
+                <div class="unified-card p-6 h-64"><img src="https://cdn-icons-png.flaticon.com/128/3135/3135783.png" class="w-16 h-16 mb-4"><h4 class="font-bold text-purple-800">3. ศึกษาข้อมูล</h4></div>
+                <div class="unified-card p-6 h-64"><img src="https://cdn-icons-png.flaticon.com/128/2592/2592317.png" class="w-16 h-16 mb-4"><h4 class="font-bold text-purple-800">4. รายงานผล</h4></div>
+                <div class="unified-card p-6 h-64"><img src="https://cdn-icons-png.flaticon.com/128/1902/1902231.png" class="w-16 h-16 mb-4"><h4 class="font-bold text-purple-800">5. ใช้ประโยชน์ฯ</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-3" class="py-24 px-6 section-light">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h3 class="text-3xl font-bold text-purple-900 mb-16 section-title">พืชศึกษา 3 สาระการเรียนรู้</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="unified-card p-10 h-72"><img src="https://cdn-icons-png.flaticon.com/128/2821/2821815.png" class="w-20 h-20 mb-6"><h4>ธรรมชาติแห่งชีวิต</h4></div>
+                <div class="unified-card p-10 h-72 border-2 border-purple-300"><img src="https://cdn-icons-png.flaticon.com/128/3043/3043815.png" class="w-20 h-20 mb-6"><h4>สรรพสิ่งล้วนพันเกี่ยว</h4></div>
+                <div class="unified-card p-10 h-72"><img src="https://cdn-icons-png.flaticon.com/128/1043/1043431.png" class="w-20 h-20 mb-6"><h4>ประโยชน์แท้แก่มหาชน</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-base" class="py-24 px-6 section-dark">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h3 class="text-3xl font-bold text-purple-900 mb-16 section-title">งานฐานทรัพยากรท้องถิ่น</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="unified-card p-10 h-64"><img src="https://cdn-icons-png.flaticon.com/128/2784/2784411.png" class="w-16 h-16 mb-4"><h4>ทรัพยากรกายภาพ</h4></div>
+                <div class="unified-card p-10 h-64"><img src="https://cdn-icons-png.flaticon.com/128/3074/3074058.png" class="w-16 h-16 mb-4"><h4>ทรัพยากรชีวภาพ</h4></div>
+                <div class="unified-card p-10 h-64"><img src="https://cdn-icons-png.flaticon.com/128/3659/3659756.png" class="w-16 h-16 mb-4"><h4>ทรัพยากรวัฒนธรรม</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-purple-900 py-12 text-center text-white/70 text-sm">
+        <div class="container mx-auto px-6">
+            <div class="mb-6 flex flex-col items-center justify-center">
+                <div class="visitor-badge bg-white/10 px-6 py-2 rounded-full border border-white/20 inline-flex items-center space-x-3 mb-4 transition-all duration-500">
+                    <svg class="w-5 h-5 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    <span class="text-xs uppercase tracking-widest font-bold text-purple-200">จำนวนผู้เข้าชม</span>
+                    <span class="text-xl font-bold text-white tracking-widest" id="visitor-count">9999</span>
+                </div>
+                <p class="font-medium text-white/90">© 2026 สนองพระราชดำริฯ โดยโรงเรียนชลบุรี "สุขบท"</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Nav Active Effect ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // --- 2. Leaf Animation ---
+        const leafContainer = document.getElementById('leaf-container');
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.opacity = Math.random() * 0.3 + 0.2;
+            leaf.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="#B19CD9"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>`;
+            leaf.animate([{ transform: 'translateY(-50px) rotate(0deg)', opacity: 0 }, { opacity: 0.5, offset: 0.2 }, { transform: `translateY(105vh) translateX(${Math.random() * 100 - 50}px) rotate(720deg)`, opacity: 0 }], { duration: Math.random() * 5000 + 5000, easing: 'linear' });
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 10000);
+        }
+        setInterval(createLeaf, 1000);
+
+        // --- 3. Visitor Counter Animation (เอฟเฟกต์ตัวเลขวิ่ง) ---
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const obj = document.getElementById('visitor-count');
+            // ให้เริ่มวิ่งจาก 9900 ไปที่ 10000 (หรือค่าที่อาจารย์ต้องการ) ในเวลา 2 วินาที
+            animateValue(obj, 9900, 10000, 2000);
+        });
+    </script>
+</body>
+</html>
