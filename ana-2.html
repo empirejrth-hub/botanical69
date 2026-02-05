@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สาระที่ 2 - สรรพสิ่งล้วนพันเกี่ยว</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            background: linear-gradient(135deg, #083344 0%, #0E7490 100%); 
+            color: #ECFEFF;
+            min-height: 100vh;
+        }
+        .tab-content { display: none; animation: slideUp 0.5s ease-out; }
+        .tab-content.active { display: block; }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-btn { transition: all 0.3s ease; border-bottom: 3px solid transparent; opacity: 0.6; }
+        .tab-btn.active { 
+            border-bottom-color: #22D3EE; 
+            color: #CFFAFE; 
+            background: rgba(34, 211, 238, 0.1); 
+            opacity: 1;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .relation-node {
+            background: rgba(8, 51, 68, 0.6);
+            border: 1px dashed #22D3EE;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body class="py-10 px-4 md:px-10">
+
+    <div class="max-w-6xl mx-auto mb-10 text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-6">
+        <div>
+            <span class="px-4 py-1 bg-cyan-600 text-white rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-cyan-900/50">Connectivity Analysis</span>
+            <h1 class="text-4xl font-bold mt-4 text-white">สาระที่ 2: <span class="text-cyan-300">สรรพสิ่งล้วนพันเกี่ยว</span></h1>
+            <p class="text-cyan-200 mt-2">ธรรมชาติแห่งชีวิต: ความสัมพันธ์และการเปลี่ยนแปลงในระบบนิเวศ โรงเรียนชลบุรี "สุขบท"</p>
+        </div>
+        <div class="flex gap-2">
+            <a href="ana-1.html" class="bg-cyan-900/50 hover:bg-cyan-800 px-6 py-2 rounded-lg border border-cyan-500/30 transition text-sm">← สาระที่ 1</a>
+            <a href="../index.html" class="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg border border-white/20 transition text-sm">🏠</a>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mb-8 flex flex-wrap gap-2 border-b border-white/10">
+        <button onclick="showTab('lifecycle')" id="btn-lifecycle" class="tab-btn active px-6 py-3 font-bold">1. วงจรชีวิตในรอบปี</button>
+        <button onclick="showTab('relations')" id="btn-relations" class="tab-btn px-6 py-3 font-bold">2. ความสัมพันธ์ทางชีวภาพ</button>
+        <button onclick="showTab('environment')" id="btn-environment" class="tab-btn px-6 py-3 font-bold">3. อิทธิพลจากสิ่งแวดล้อม</button>
+    </div>
+
+    <div class="max-w-6xl mx-auto glass-card rounded-3xl p-8 shadow-2xl">
+        
+        <div id="lifecycle" class="tab-content active">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-cyan-300">ปฏิทินพฤกษศาสตร์ (Life Cycle Chart)</h3>
+                    <p class="text-cyan-100 italic">การวิเคราะห์พฤติกรรมพืชที่เปลี่ยนไปตามกาลเวลา</p>
+                    <div class="space-y-4">
+                        <div class="bg-black/30 p-4 rounded-2xl border-l-4 border-cyan-400">
+                            <h4 class="font-bold text-cyan-200">ระยะพักตัวและสะสมอาหาร</h4>
+                            <p class="text-sm text-slate-300">ช่วงฤดูหนาว: พืชมีการลดการคายน้ำ ผลัดใบ หรือสะสมแป้งในลำต้น</p>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-2xl border-l-4 border-cyan-400">
+                            <h4 class="font-bold text-cyan-200">ระยะสืบพันธุ์ (ดอก-ผล)</h4>
+                            <p class="text-sm text-slate-300">การตอบสนองต่อช่วงแสง (Day Length) เพื่อกระตุ้นการสร้างตาดอก</p>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-2xl border-l-4 border-cyan-400">
+                            <h4 class="font-bold text-cyan-200">ระยะการกระจายพันธุ์</h4>
+                            <p class="text-sm text-slate-300">ความสัมพันธ์ระหว่างผลที่สุกงอมกับสัตว์ที่เป็นตัวกลางกระจายเมล็ด</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="rounded-2xl overflow-hidden border border-cyan-500/30 h-64">
+                        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4 bg-cyan-950/50 rounded-2xl border border-cyan-500/20">
+                        <p class="text-xs text-cyan-300">**บันทึกเพิ่มเติม:** จากการสังเกตพืชศึกษาในโรงเรียน พบว่าสภาพอากาศที่แห้งแล้งในปีนี้ส่งผลให้การออกดอกเร็วกว่าปฏิทินเดิม 2 สัปดาห์</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="relations" class="tab-content">
+            <h3 class="text-2xl font-bold text-cyan-300 mb-6">ความสัมพันธ์ระหว่างพืชศึกษากับสรรพสิ่ง</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relation-node">
+                    <span class="text-2xl">🐝</span>
+                    <h4 class="font-bold text-white mt-2">ภาวะพึ่งพาอาศัย</h4>
+                    <p class="text-xs text-cyan-200 mt-1">แมลงผสมเกสรได้น้ำหวาน พืชได้กระจายละอองเรณู เพิ่มความหลากหลายทางพันธุกรรม</p>
+                </div>
+                <div class="relation-node">
+                    <span class="text-2xl">🐛</span>
+                    <h4 class="font-bold text-white mt-2">ห่วงโซ่อาหาร</h4>
+                    <p class="text-xs text-cyan-200 mt-1">หนอนผีเสื้อกินใบพืชเป็นอาหาร เป็นจุดเริ่มต้นของการส่งต่อพลังงานในสุขบท</p>
+                </div>
+                <div class="relation-node">
+                    <span class="text-2xl">🍄</span>
+                    <h4 class="font-bold text-white mt-2">ความสัมพันธ์ใต้ดิน</h4>
+                    <p class="text-xs text-cyan-200 mt-1">ไมคอร์ไรซาช่วยรากพืชดูดซับธาตุอาหาร แลกกับน้ำตาลที่พืชสร้างจากการสังเคราะห์แสง</p>
+                </div>
+            </div>
+            <div class="mt-8 p-6 bg-cyan-900/30 rounded-2xl border border-cyan-500/30">
+                <h4 class="font-bold text-cyan-100 mb-2">บทวิเคราะห์ "สรรพสิ่งล้วนพันเกี่ยว"</h4>
+                <p class="text-sm text-slate-300 italic">"เมื่อใบหนึ่งใบของพืชศึกษาร่วงหล่น ไม่ใช่เพียงการสิ้นสุด แต่คือการเริ่มต้นของวัฏจักรสารอาหารให้กับสิ่งมีชีวิตในดิน และส่งผลต่อการเติบโตของพืชรอบข้างในพื้นที่โรงเรียน"</p>
+            </div>
+        </div>
+
+        <div id="environment" class="tab-content">
+            <h3 class="text-2xl font-bold text-cyan-300 mb-6">อิทธิพลของปัจจัยกายภาพ (Abiotic Factors)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="text-cyan-400 border-b border-cyan-800">
+                                <th class="p-3 text-left">ปัจจัยภายนอก</th>
+                                <th class="p-3 text-left">การตอบสนองของพืชศึกษา</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-300">
+                            <tr class="border-b border-cyan-900/50">
+                                <td class="p-3 font-bold">อุณหภูมิที่สูงขึ้น</td>
+                                <td class="p-3">ปิดปากใบเร็วขึ้นเพื่อรักษาความชื้น</td>
+                            </tr>
+                            <tr class="border-b border-cyan-900/50">
+                                <td class="p-3 font-bold">คุณภาพของดิน (pH)</td>
+                                <td class="p-3">ส่งผลต่อสีของดอกและความแข็งแรงของลำต้น</td>
+                            </tr>
+                            <tr class="border-b border-cyan-900/50">
+                                <td class="p-3 font-bold">ทิศทางลม</td>
+                                <td class="p-3">อิทธิพลต่อรูปทรงพุ่มและการเอียงของลำต้น</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="glass-card p-6 rounded-2xl flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🌪️</div>
+                        <p class="text-cyan-200 text-sm italic">"พืชคือผู้บันทึกร่องรอยของสิ่งแวดล้อม"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-12 flex justify-between items-center">
+        <p class="text-cyan-500/50 text-xs">Analysis Section 2 | สรรพสิ่งล้วนพันเกี่ยว</p>
+        <a href="ana-3.html" class="bg-gradient-to-r from-cyan-500 to-blue-600 px-10 py-4 rounded-2xl font-bold shadow-xl hover:scale-105 transition-all text-white">ไปสาระที่ 3 →</a>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

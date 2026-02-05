@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลำดับที่ 7 - การจัดทำป้ายบันทึกการดูแลรักษา</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); 
+            color: #166534;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* เอฟเฟคใบไม้ปลิวสีเขียว */
+        .leaf { position: fixed; top: -50px; z-index: 9999; pointer-events: none; }
+
+        /* Photo Card ดีไซน์โพลารอยด์ */
+        .photo-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            cursor: zoom-in;
+            border-bottom: 25px solid white;
+        }
+        .photo-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 30px 60px -12px rgba(22, 101, 52, 0.2);
+        }
+
+        #photo-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(20, 83, 45, 0.95);
+            z-index: 10000;
+            backdrop-filter: blur(8px);
+        }
+        
+        .journal-frame {
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px dashed #86EFAC;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <div id="leaf-container"></div>
+
+    <div class="max-w-6xl mx-auto flex justify-between items-center mb-16 relative z-10">
+        <a href="comp2-6.html" class="bg-green-100 text-green-700 px-6 py-2 rounded-full font-bold hover:bg-white transition shadow-sm flex items-center border border-green-200">
+            <span class="mr-2">←</span> กลับลำดับที่ 6
+        </a>
+        <div class="text-right">
+            <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-[10px] font-bold uppercase tracking-widest">องค์ประกอบที่ 2 | Step 07</span>
+            <h1 class="text-3xl font-bold text-green-900 mt-2">การจัดทำป้ายบันทึกการดูแลรักษา</h1>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20 relative z-10">
+        <div class="photo-card shadow-lg" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=800" class="w-full h-64 object-cover rounded-sm">
+        </div>
+        <div class="photo-card shadow-lg" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=800" class="w-full h-64 object-cover rounded-sm">
+        </div>
+        <div class="photo-card shadow-lg" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1454165833467-13594d99e021?auto=format&fit=crop&w=800" class="w-full h-64 object-cover rounded-sm">
+        </div>
+        <div class="photo-card shadow-lg" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1517842645537-4d25890bb892?auto=format&fit=crop&w=800" class="w-full h-64 object-cover rounded-sm">
+        </div>
+        <div class="photo-card shadow-lg" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1592150621344-c792307f39b7?auto=format&fit=crop&w=800" class="w-full h-64 object-cover rounded-sm">
+        </div>
+        <div class="photo-card shadow-lg" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1513251223402-5369688463e7?auto=format&fit=crop&w=800" class="w-full h-64 object-cover rounded-sm">
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto journal-frame p-10 rounded-2xl shadow-xl mb-20 relative z-10">
+        <div class="flex items-center mb-6">
+            <div class="w-14 h-14 bg-green-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg mr-5 text-white">📋</div>
+            <h2 class="text-2xl font-bold text-green-900 leading-tight">สรุปการดำเนินงานลำดับที่ 7</h2>
+        </div>
+        <p class="text-green-800 leading-relaxed text-lg border-l-4 border-green-400 pl-6 py-2">
+            คณะดำเนินงานจัดทำป้ายบันทึกการดูแลรักษา (Maintenance Record) สำหรับพรรณไม้แต่ละต้นที่รวบรวมเข้าปลูกใหม่ 
+            ป้ายนี้ใช้เพื่อบันทึกประวัติการบำรุงรักษาอย่างเป็นระบบ เช่น วันที่รดน้ำ วันที่ใส่ปุ๋ย และการกำจัดศัตรูพืช 
+            เพื่อให้นักเรียนสามารถติดตามการเจริญเติบโตและประเมินประสิทธิภาพของการดูแลรักษาได้อย่างชัดเจน 
+            สร้างความรับผิดชอบและวินัยในการทำงานสวนพฤกษศาสตร์ของนักเรียนโรงเรียนชลบุรี "สุขบท"
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto flex justify-between items-center border-t border-green-200 pt-10 relative z-10">
+        <a href="comp2-6.html" class="text-green-600 font-bold hover:underline">← ย้อนกลับลำดับที่ 6</a>
+        <a href="comp2-8.html" class="bg-green-700 text-white px-12 py-4 rounded-xl font-bold shadow-2xl hover:bg-green-800 hover:scale-105 transition-all flex items-center">
+            ไปลำดับที่ 8 <span class="ml-2">→</span>
+        </a>
+    </div>
+
+    <div id="photo-modal" onclick="closeModal()" class="flex items-center justify-center p-4">
+        <img id="modal-img" src="" class="max-w-full max-h-[85vh] shadow-2xl transition-all duration-500 transform scale-90 border-8 border-white rounded-sm">
+    </div>
+
+    <script>
+        const leafContainer = document.getElementById('leaf-container');
+        const leafColors = ['#4ADE80', '#22C55E', '#16A34A', '#86EFAC'];
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.width = (Math.random() * 15 + 10) + 'px';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.opacity = Math.random() * 0.4 + 0.3;
+            leaf.innerHTML = `<svg viewBox="0 0 24 24" fill="${leafColors[Math.floor(Math.random() * leafColors.length)]}"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>`;
+            leaf.animate([{ transform: `translateY(-50px) rotate(0deg)` }, { transform: `translateY(110vh) rotate(360deg)` }], { duration: Math.random() * 8000 + 7000, easing: 'linear' });
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 15000);
+        }
+        setInterval(createLeaf, 900);
+
+        function openModal(card) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = "flex";
+            modalImg.src = card.querySelector('img').src;
+            setTimeout(() => { modalImg.classList.replace('scale-90', 'scale-100'); }, 50);
+        }
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.classList.replace('scale-100', 'scale-90');
+            setTimeout(() => { modal.style.display = "none"; }, 300);
+        }
+    </script>
+</body>
+</html>

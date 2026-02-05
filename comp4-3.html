@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลำดับที่ 3 - การจัดทำรายงานฉบับสมบูรณ์</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            background: linear-gradient(135deg, #E0E7FF 0%, #F8FAFC 100%); 
+            color: #1E3A8A;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .leaf { position: fixed; top: -50px; z-index: 9999; pointer-events: none; }
+
+        .photo-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
+            cursor: zoom-in;
+            border: 2px solid #CBD5E1;
+        }
+        .photo-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+            border-color: #3B82F6;
+        }
+
+        .report-frame {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #3B82F6;
+            border-left-width: 12px;
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        #photo-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <div id="leaf-container"></div>
+
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center mb-12 gap-4 relative z-10">
+        <a href="comp4-2.html" class="bg-[#1E3A8A] text-white px-8 py-3 rounded-full font-bold hover:bg-[#1E40AF] transition-all shadow-lg flex items-center">
+            <span class="mr-2">←</span> กลับลำดับที่ 2
+        </a>
+        <div class="text-center md:text-right">
+            <span class="px-4 py-1 bg-blue-600 text-white rounded-full text-xs font-bold uppercase tracking-widest shadow-lg animate-pulse">Element 4 | Final Step</span>
+            <h1 class="text-3xl font-bold text-slate-900 mt-2">การจัดทำรายงานฉบับสมบูรณ์</h1>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 relative z-10">
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1544640808-32ca72ac7f67?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded-lg">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded-lg">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded-lg">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded-lg">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1506784919141-93b43983144a?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded-lg">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded-lg">
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto report-frame p-8 md:p-12 rounded-xl shadow-2xl mb-16 relative z-10">
+        <div class="flex items-center mb-6">
+            <span class="text-5xl mr-5">🏆</span>
+            <h2 class="text-2xl font-bold text-slate-900 leading-tight">สรุปความสำเร็จขององค์ประกอบที่ 4</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-700">
+            ขั้นตอนสุดท้ายที่เป็นหัวใจสำคัญคือ <b>การจัดทำรายงานฉบับสมบูรณ์</b> ซึ่งเป็นการรวบรวมเนื้อหาจากแบบศึกษาพรรณไม้ (ก.7-003) 
+            ทะเบียนพรรณไม้ และสรุปผลการเรียนรู้ทั้งหมด เข้าสู่รูปเล่มรายงานมาตรฐานตามหลักเกณฑ์ อพ.สธ. 
+            พร้อมทั้งเผยแพร่ผลงานผ่านสื่อที่คัดเลือกไว้ เพื่อสร้างตระหนักและขยายผลความรู้สู่ชุมชนและสถานศึกษาอื่น 
+            สะท้อนถึงความมุ่งมั่นในการอนุรักษ์พันธุกรรมพืชอย่างยั่งยืนของโรงเรียนชลบุรี "สุขบท"
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto flex justify-between items-center border-t border-slate-300 pt-8 relative z-10">
+        <a href="comp4-2.html" class="text-blue-700 font-bold hover:underline">← กลับลำดับที่ 2</a>
+        <a href="../index.html" class="bg-gradient-to-r from-[#1E3A8A] to-[#1E40AF] text-white px-10 py-4 rounded-full font-bold hover:scale-110 transition-transform shadow-2xl border-2 border-blue-300">
+            เสร็จสิ้นกระบวนการทั้งหมด ✨
+        </a>
+    </div>
+
+    <div id="photo-modal" onclick="closeModal()">
+        <img id="modal-img" src="" class="max-w-[90%] max-h-[85vh] border-8 border-white rounded-lg shadow-2xl">
+    </div>
+
+    <script>
+        const leafContainer = document.getElementById('leaf-container');
+        const leafColors = ['#CBD5E1', '#94A3B8', '#E2E8F0', '#FFFFFF'];
+
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.width = (Math.random() * 20 + 10) + 'px';
+            leaf.innerHTML = `<svg viewBox="0 0 24 24" fill="${leafColors[Math.floor(Math.random() * 4)]}"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>`;
+            leaf.animate([
+                { transform: 'translateY(-50px) rotate(0deg)', opacity: 0.6 },
+                { transform: 'translateY(110vh) rotate(360deg)', opacity: 0 }
+            ], { duration: Math.random() * 6000 + 4000, easing: 'linear' });
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 10000);
+        }
+        setInterval(createLeaf, 1500);
+
+        function openModal(card) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = "flex";
+            modalImg.src = card.querySelector('img').src;
+        }
+        function closeModal() {
+            document.getElementById('photo-modal').style.display = "none";
+        }
+    </script>
+</body>
+</html>

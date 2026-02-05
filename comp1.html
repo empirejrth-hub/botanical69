@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>องค์ประกอบที่ 1 - โรงเรียนชลบุรี "สุขบท"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background: linear-gradient(135deg, #F8F4FF 0%, #E6E6FA 100%); color: #4A2B6D; overflow-x: hidden; }
+        .master-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(177, 156, 217, 0.2); cursor: pointer; }
+        .master-card:hover { transform: scale(1.05) translateY(-5px); background: white; box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15); border-color: #B19CD9; }
+        .section-title { position: relative; display: inline-block; padding-bottom: 12px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: #B19CD9; border-radius: 10px; }
+        .leaf { position: fixed; top: -50px; z-index: 9999; pointer-events: none; }
+    </style>
+</head>
+<body class="pb-20">
+    <div id="leaf-container"></div>
+
+    <nav class="sticky top-0 z-50 bg-white/60 backdrop-blur-md border-b border-purple-100 py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-purple-700 font-bold flex items-center hover:scale-105 transition-transform">
+                <span class="mr-2">🏠</span> กลับหน้าเมนูหลัก
+            </a>
+            <div class="flex items-center space-x-3">
+                <img src="rspg-logo.png" alt="อพ.สธ." class="h-8">
+                <img src="skb-logo.png" alt="สุขบท" class="h-8">
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12 max-w-6xl">
+        <header class="text-center mb-16">
+            <span class="px-4 py-1 bg-purple-600 text-white rounded-full text-[10px] font-bold uppercase tracking-widest shadow-md">องค์ประกอบที่ 1</span>
+            <h1 class="text-4xl md:text-5xl font-bold mt-6 text-purple-950">การจัดทำป้ายชื่อพรรณไม้</h1>
+            <p class="text-purple-500 mt-3 italic font-medium">หลักการ: รู้ชื่อ รู้ลักษณ์ รู้จัก</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <script>
+                // เจเขียน Array ข้อมูลเพื่อสร้างปุ่มอัตโนมัติ จะได้ลิงก์ถูกต้องแม่นยำครับ
+                const steps = [
+                    { id: "01", name: "การกำหนดพื้นที่ศึกษา", icon: "📍" },
+                    { id: "02", name: "การสำรวจพรรณไม้ในพื้นที่ศึกษา", icon: "🚶" },
+                    { id: "03", name: "การทำผังแสดงตำแหน่งพรรณไม้", icon: "🗺️" },
+                    { id: "04", name: "การตั้งชื่อรีดหรือการให้รหัส", icon: "🔢" },
+                    { id: "05", name: "การรวบรวมตัวอย่างพรรณไม้", icon: "🌿" },
+                    { id: "06", name: "การถ่ายภาพพรรณไม้", icon: "📸" },
+                    { id: "07", name: "การบันทึกข้อมูล (ก.7-003)", icon: "📝" },
+                    { id: "08", name: "การทำตัวอย่างพรรณไม้แห้ง", icon: "☀️" },
+                    { id: "09", name: "การทำตัวอย่างพรรณไม้ดอง", icon: "🧪" },
+                    { id: "10", name: "การตรวจสอบชื่อวิทยาศาสตร์", icon: "🔎" },
+                    { id: "11", name: "การทำตัวอย่างเฉพาะส่วน", icon: "📦" },
+                    { id: "12", name: "การจัดทำทะเบียน (ก.7-005)", icon: "📔" },
+                    { id: "13", name: "การทำป้ายชื่อพรรณไม้สมบูรณ์", icon: "🏷️" }
+                ];
+
+                steps.forEach(step => {
+                    const isGoal = step.id === "13";
+                    document.write(`
+                        <a href="comp1-${parseInt(step.id)}.html" class="master-card p-6 rounded-[2rem] flex items-center space-x-5 border-l-8 ${isGoal ? 'border-purple-600 bg-white shadow-xl' : 'border-purple-300'}">
+                            <div class="text-3xl">${step.icon}</div>
+                            <div>
+                                <span class="text-[10px] font-bold ${isGoal ? 'text-purple-600' : 'text-purple-400'}">ลำดับที่ ${step.id} ${isGoal ? '(เป้าหมาย)' : ''}</span>
+                                <p class="font-bold text-purple-900 text-sm leading-tight">${step.name}</p>
+                            </div>
+                        </a>
+                    `);
+                });
+            </script>
+
+        </div>
+    </main>
+
+    <script>
+        // Script ใบไม้ปลิวตามเดิม
+        const leafContainer = document.getElementById('leaf-container');
+        const leafColors = ['#E6E6FA', '#D8BFD8', '#B19CD9'];
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.width = (Math.random() * 15 + 10) + 'px';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.opacity = Math.random() * 0.3 + 0.1;
+            leaf.innerHTML = `<svg viewBox="0 0 24 24" fill="${leafColors[Math.floor(Math.random() * leafColors.length)]}"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>`;
+            leaf.animate([{ transform: `translateY(-50px) rotate(0deg)` }, { transform: `translateY(110vh) rotate(360deg)` }], { duration: Math.random() * 7000 + 6000, easing: 'linear' });
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 13000);
+        }
+        setInterval(createLeaf, 900);
+    </script>
+</body>
+</html>

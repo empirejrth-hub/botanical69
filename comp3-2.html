@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลำดับที่ 2 - การสรุปลักษณะและข้อมูลพรรณไม้ (ก.7-003 หน้า 8)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            background: linear-gradient(135deg, #FFFDFB 0%, #F5E6CA 100%); 
+            color: #5D4037;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Leaf Animation */
+        .leaf { position: fixed; top: -50px; z-index: 9999; pointer-events: none; }
+
+        /* Card Effect */
+        .photo-card {
+            transition: all 0.3s ease;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: 1px solid #E0C097;
+        }
+        .photo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(93, 64, 55, 0.2);
+            border-color: #8D6E63;
+        }
+
+        /* Research Frame */
+        .research-frame {
+            background-color: #FCFBE3;
+            border: 2px solid #E0C097;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Modal Settings */
+        #photo-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <div id="leaf-container"></div>
+
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center mb-12 gap-4 relative z-10">
+        <a href="comp3-1.html" class="bg-[#8D6E63] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#5D4037] transition-all shadow-md">
+            ← กลับลำดับที่ 1
+        </a>
+        <div class="text-center md:text-right">
+            <span class="px-4 py-1 bg-[#E0C097] text-[#5D4037] rounded-full text-xs font-bold uppercase">Element 3 | Step 02</span>
+            <h1 class="text-3xl font-bold text-[#3E2723] mt-2">การสรุปลักษณะและข้อมูลพรรณไม้</h1>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 relative z-10">
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1517842645537-4d25890bb892?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1454165833467-13594d99e021?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1506784919141-93b43983144a?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded">
+        </div>
+        <div class="photo-card" onclick="openModal(this)">
+            <img src="https://images.unsplash.com/photo-1513251223402-5369688463e7?auto=format&fit=crop&w=600" class="w-full h-60 object-cover rounded">
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto research-frame p-8 md:p-12 rounded-xl shadow-lg mb-16 relative z-10">
+        <div class="flex items-center mb-6">
+            <span class="text-4xl mr-4">✍️</span>
+            <h2 class="text-2xl font-bold text-[#3E2723]">สรุปการดำเนินงานลำดับที่ 2</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-[#5D4037] border-l-4 border-[#8D6E63] pl-6">
+            คณะทำงานดำเนินการนำข้อมูลที่ได้จากการศึกษาลักษณะทางพฤกษศาสตร์ในขั้นก่อนหน้า มาวิเคราะห์และเรียบเรียงเป็นความเรียงที่กระชับแต่ครบถ้วน 
+            โดยเน้นการสรุปลักษณะเด่นของพรรณไม้แต่ละชนิด บันทึกลงใน <b>แบบศึกษาพรรณไม้ (ก.7-003) หน้า 8</b> 
+            เพื่อให้ได้ข้อมูลสรุปพฤกษศาสตร์ที่สมบูรณ์ พร้อมสำหรับการนำไปตรวจสอบชื่อวิทยาศาสตร์ในลำดับถัดไป 
+            ตามมาตรฐานงานสวนพฤกษศาสตร์โรงเรียน โรงเรียนชลบุรี "สุขบท"
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto flex justify-between items-center border-t border-[#D7CCC8] pt-8 relative z-10">
+        <a href="comp3-1.html" class="text-[#8D6E63] font-bold hover:underline">← กลับลำดับที่ 1</a>
+        <a href="comp3-3.html" class="bg-[#5D4037] text-white px-10 py-4 rounded-lg font-bold hover:bg-[#3E2723] transition-transform hover:scale-105 shadow-xl">
+            ไปลำดับที่ 3 →
+        </a>
+    </div>
+
+    <div id="photo-modal" onclick="closeModal()">
+        <img id="modal-img" src="" class="max-w-[90%] max-h-[85vh] border-4 border-white rounded shadow-2xl">
+    </div>
+
+    <script>
+        // Leaf Animation
+        const leafContainer = document.getElementById('leaf-container');
+        const leafColors = ['#A1887F', '#8D6E63', '#D7CCC8', '#BCAAA4'];
+
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.width = (Math.random() * 20 + 10) + 'px';
+            leaf.innerHTML = `<svg viewBox="0 0 24 24" fill="${leafColors[Math.floor(Math.random() * 4)]}"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>`;
+            
+            leaf.animate([
+                { transform: 'translateY(-50px) rotate(0deg)', opacity: 0.8 },
+                { transform: 'translateY(110vh) rotate(360deg)', opacity: 0 }
+            ], {
+                duration: Math.random() * 5000 + 5000,
+                easing: 'linear'
+            });
+
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 10000);
+        }
+        setInterval(createLeaf, 1200);
+
+        // Modal Functions
+        function openModal(card) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = "flex";
+            modalImg.src = card.querySelector('img').src;
+        }
+        function closeModal() {
+            document.getElementById('photo-modal').style.display = "none";
+        }
+    </script>
+</body>
+</html>

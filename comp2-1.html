@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>องค์ประกอบที่ 2 ลำดับที่ 1 - สำรวจการรวบรวมพรรณไม้</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Sarabun', sans-serif; 
+            /* เปลี่ยน Background เป็นเขียวอ่อนธรรมชาติ */
+            background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); 
+            color: #166534;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* เอฟเฟคใบไม้ปลิว (เปลี่ยนเป็นสีเขียวหลายเฉด) */
+        .leaf { position: fixed; top: -50px; z-index: 9999; pointer-events: none; }
+
+        /* Photo Card ดีไซน์ใหม่แบบกระดาษโน้ต */
+        .photo-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: white;
+            padding: 12px;
+            border-radius: 4px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+            cursor: zoom-in;
+            border-bottom: 20px solid white; /* พื้นที่ว่างด้านล่างเหมือนโพลารอยด์ */
+        }
+        .photo-card:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 30px 60px -12px rgba(22, 101, 52, 0.2);
+        }
+
+        #photo-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(20, 83, 45, 0.9);
+            z-index: 10000;
+            backdrop-filter: blur(8px);
+        }
+        
+        .journal-frame {
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px dashed #86EFAC;
+        }
+    </style>
+</head>
+<body class="py-12 px-6">
+
+    <div id="leaf-container"></div>
+
+    <div class="max-w-6xl mx-auto flex justify-between items-center mb-16 relative z-10">
+        <a href="../index.html" class="bg-green-600 text-white px-6 py-2 rounded-full font-bold hover:bg-green-700 transition shadow-lg flex items-center">
+            <span class="mr-2">🌳</span> เมนูหลัก
+        </a>
+        <div class="text-right">
+            <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-[10px] font-bold uppercase tracking-widest">องค์ประกอบที่ 2 | Step 01</span>
+            <h1 class="text-3xl font-bold text-green-900 mt-2 italic">การสำรวจการรวบรวมพรรณไม้</h1>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20 relative z-10">
+        <div class="photo-card" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800" class="w-full h-64 object-cover"></div>
+        <div class="photo-card" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1592150621344-c792307f39b7?auto=format&fit=crop&w=800" class="w-full h-64 object-cover"></div>
+        <div class="photo-card" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=800" class="w-full h-64 object-cover"></div>
+        <div class="photo-card" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=800" class="w-full h-64 object-cover"></div>
+        <div class="photo-card" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1502364236707-fc892973b6da?auto=format&fit=crop&w=800" class="w-full h-64 object-cover"></div>
+        <div class="photo-card" onclick="openModal(this)"><img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?auto=format&fit=crop&w=800" class="w-full h-64 object-cover"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto journal-frame p-10 rounded-xl shadow-inner mb-20 relative z-10">
+        <div class="flex items-center mb-6">
+            <div class="w-14 h-14 bg-green-700 rounded-full flex items-center justify-center text-3xl shadow-lg mr-5 text-white">📋</div>
+            <h2 class="text-2xl font-bold text-green-900 leading-tight underline decoration-green-300">สรุปการดำเนินงานลำดับที่ 1</h2>
+        </div>
+        <p class="text-green-800 leading-relaxed text-lg pl-2">
+            คณะดำเนินงานร่วมกันสำรวจพรรณไม้ที่มีอยู่เดิมและพรรณไม้ที่ต้องการรวบรวมเพิ่มเติมในโรงเรียนชลบุรี "สุขบท" 
+            เพื่อจัดหมวดหมู่และวางแผนการปลูกให้สอดคล้องกับสภาพพื้นที่และความต้องการศึกษา 
+            โดยเน้นการเลือกพรรณไม้ที่ทรงคุณค่าและเหมาะสมกับระบบนิเวศท้องถิ่น
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto flex justify-between items-center border-t border-green-200 pt-10 relative z-10">
+        <div class="text-green-300 font-bold opacity-50">← ก่อนหน้า</div>
+        <a href="comp2-2.html" class="bg-green-700 text-white px-12 py-4 rounded-xl font-bold shadow-xl hover:bg-green-800 hover:-translate-y-1 transition-all">
+            ถัดไป: ลำดับที่ 2 →
+        </a>
+    </div>
+
+    <div id="photo-modal" onclick="closeModal()" class="flex items-center justify-center p-4">
+        <img id="modal-img" src="" class="max-w-full max-h-[85vh] shadow-2xl transition-all duration-500 transform scale-90 border-8 border-white">
+    </div>
+
+    <script>
+        // เปลี่ยนใบไม้เป็นสีเขียวธรรมชาติ
+        const leafContainer = document.getElementById('leaf-container');
+        const leafColors = ['#4ADE80', '#22C55E', '#16A34A', '#86EFAC'];
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.width = (Math.random() * 15 + 10) + 'px';
+            leaf.style.left = Math.random() * 100 + 'vw';
+            leaf.style.opacity = Math.random() * 0.5 + 0.3;
+            leaf.innerHTML = `<svg viewBox="0 0 24 24" fill="${leafColors[Math.floor(Math.random() * leafColors.length)]}"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,11 17,8 17,8Z"/></svg>`;
+            leaf.animate([{ transform: `translateY(-50px) rotate(0deg)` }, { transform: `translateY(110vh) rotate(360deg)` }], { duration: Math.random() * 8000 + 7000, easing: 'linear' });
+            leafContainer.appendChild(leaf);
+            setTimeout(() => leaf.remove(), 15000);
+        }
+        setInterval(createLeaf, 800);
+
+        function openModal(card) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = "flex";
+            modalImg.src = card.querySelector('img').src;
+            setTimeout(() => { modalImg.classList.replace('scale-90', 'scale-100'); }, 50);
+        }
+        function closeModal() {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.classList.replace('scale-100', 'scale-90');
+            setTimeout(() => { modal.style.display = "none"; }, 300);
+        }
+    </script>
+</body>
+</html>
